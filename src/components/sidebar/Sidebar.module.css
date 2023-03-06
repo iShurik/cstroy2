@@ -1,0 +1,8 @@
+@media screen and (max-width: 992px) {
+    .stickytop {
+        position: relative !important;
+    }
+    .vh100 {
+        height: auto !important;
+    }
+}

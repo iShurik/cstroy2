@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Row } from "react-bootstrap"
+import Sidebar from "./components/sidebar/Sidebar"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Content from "./components/content/Content"
 
-function App() {
+const App = () => {
+
+  const field = [
+    {
+      id: '1',
+      type: 'input',
+      head: 'Qwe'
+    },
+    {
+      id:'2',
+      type: 'textarea',
+      head: 'Rty'
+    }
+  ]
+
+  const saveField = (inputField) => {
+    const field = {
+      ...inputField,
+      id: Math.random().toString()
+    }
+    console.log(field)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container fluid>
+      <Row>
+        <Sidebar />
+        <Content field={field} onSaveField={saveField} />
+      </Row>
+    </Container>
+  )
 }
 
-export default App;
+export default App
