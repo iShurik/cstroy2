@@ -1,14 +1,13 @@
-import { Col, Row, Button, Form } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 
 
 const OrderForm = (props) => {
 
-    let fields= props.fields.map(f=> <div><div>{f.id}. {f.type}</div><div>{f.head}</div></div>)
 
     return (
         <Row>
             <Col lg={12}>
-                {fields}
+                {props.fields.map(f=> <div key={f.id}><div>{f.id}. {f.type}</div><div>{f.head}</div></div>)}
             </Col>
         </Row>
     )
